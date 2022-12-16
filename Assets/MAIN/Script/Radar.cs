@@ -9,7 +9,8 @@ public class Radar : MonoBehaviour
 	public GameObject rock;
 	public GameObject submarine;
 	public GameObject rock2;
-	public GameObject submarine2;
+    public Transform rock2Transform;
+    public GameObject submarine2;
 	public GameObject sppedIndicator;
 	public GameObject heightIndicator;
 	public GameObject rotationIndicator;
@@ -47,8 +48,8 @@ public class Radar : MonoBehaviour
 		if (rock2.transform.position.y <= 11.06405) // Когда скала_2 достигает края снизу
 		{
 			rock.transform.SetLocalPositionAndRotation(new Vector3((float)0.41, rock.transform.localPosition.y, (float)-0.499), rock.transform.localRotation);
-			rock2.transform.SetPositionAndRotation(new Vector3(1, (float)11.69, rock2.transform.position.z), rock2.transform.rotation);
-			radarRotation.transform.Rotate(0, 0, 0, Space.World);
+			rock2.transform.SetPositionAndRotation(rock2Transform.position, rock2.transform.rotation);
+			radarRotation.transform.rotation = Quaternion.identity;
 			rr = 0;
 		}
         if (submarine.transform.localPosition.y >= -0.015) // Когда субмарина_1 выше скалы_1
