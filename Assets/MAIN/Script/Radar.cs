@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,12 +44,14 @@ public class Radar : MonoBehaviour
 		{
 			rock.transform.SetLocalPositionAndRotation(new Vector3(rock.transform.position.x, rock.transform.localPosition.y, 10), rock.transform.localRotation);
 		}
-		if (rock2.transform.localPosition.y <= -0.443) // Когда скала_2 достигает края снизу
+		if (rock2.transform.position.y <= 11.06405) // Когда скала_2 достигает края снизу
 		{
 			rock.transform.SetLocalPositionAndRotation(new Vector3((float)0.41, rock.transform.localPosition.y, (float)-0.499), rock.transform.localRotation);
-			rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, (float)0.439, rock2.transform.localPosition.z), rock2.transform.localRotation);
+			rock2.transform.SetPositionAndRotation(new Vector3(1, (float)11.69, rock2.transform.position.z), rock2.transform.rotation);
+			radarRotation.transform.Rotate(0, 0, 0, Space.World);
+			rr = 0;
 		}
-		if (submarine.transform.localPosition.y >= -0.015) // Когда субмарина_1 выше скалы_1
+        if (submarine.transform.localPosition.y >= -0.015) // Когда субмарина_1 выше скалы_1
 		{
 			rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y, 10), rock2.transform.localRotation);
 		}
@@ -65,12 +68,17 @@ public class Radar : MonoBehaviour
 			height = (heightHandle.transform.position.z - (float)1.7) * 2 / (float)0.2 - (float)0.2;
 		}
 
-		rr -= wheel.transform.localRotation.z * 90 * 0.001f;
+		if ((int)rotation != 0) {
+            rr -= wheel.transform.localRotation.z * 90 * 0.001f;
+        }
+
+		Debug.Log(wheel.transform.localRotation.z);
 
         rock.transform.SetLocalPositionAndRotation(new Vector3(rock.transform.localPosition.x - speed / acceptable, rock.transform.localPosition.y, rock.transform.localPosition.z), rock.transform.localRotation);
 		submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, submarine.transform.localPosition.y + height / 2000, submarine.transform.localPosition.z), submarine.transform.localRotation);
-		rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y - speed / (f * acceptable), rock2.transform.localPosition.z), rock2.transform.localRotation);
-		radarRotation.transform.SetLocalPositionAndRotation(radarRotation.transform.localPosition, Quaternion.Euler(new Vector3(0, 0, rr)));
+		//rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y - speed / (f * acceptable), rock2.transform.localPosition.z), rock2.transform.localRotation);
+        rock2.transform.SetPositionAndRotation(new Vector3(rock2.transform.position.x, rock2.transform.position.y - speed / (f * acceptable), rock2.transform.position.z), rock2.transform.rotation);
+        radarRotation.transform.SetLocalPositionAndRotation(radarRotation.transform.localPosition, Quaternion.Euler(new Vector3(0, 0, rr)));
 
         sppedIndicator.GetComponent<TextMesh>().text = "Скорость: " + (int)speed;
 		heightIndicator.GetComponent<TextMesh>().text = "Высота: " + (int)-(100 - (submarine.transform.localPosition.y + 0.365) * 100 / 0.7325);
