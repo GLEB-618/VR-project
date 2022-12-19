@@ -21,9 +21,9 @@ public class Radar : MonoBehaviour
     public float speed = 30;
 	public float height = 0;
 	private float acceptable = 100000;
-	private float f = 1.82575f;
+	private float f = 2.80599f;
 	public float rotation = 0;
-	public float rr = 0;
+	private float rr = 0;
 	public void Update()
 	{
 		speed = (speedHandle.transform.position.z - (float)1.5) * 80 / (float)0.4 + 20;
@@ -73,12 +73,9 @@ public class Radar : MonoBehaviour
             rr -= wheel.transform.localRotation.z * 90 * 0.001f;
         }
 
-		Debug.Log(wheel.transform.localRotation.z);
-
         rock.transform.SetLocalPositionAndRotation(new Vector3(rock.transform.localPosition.x - speed / acceptable, rock.transform.localPosition.y, rock.transform.localPosition.z), rock.transform.localRotation);
 		submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, submarine.transform.localPosition.y + height / 2000, submarine.transform.localPosition.z), submarine.transform.localRotation);
-		//rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y - speed / (f * acceptable), rock2.transform.localPosition.z), rock2.transform.localRotation);
-        rock2.transform.SetPositionAndRotation(new Vector3(rock2.transform.position.x, rock2.transform.position.y - speed / (f * acceptable), rock2.transform.position.z), rock2.transform.rotation);
+		rock2.transform.SetPositionAndRotation(new Vector3(rock2.transform.position.x, rock2.transform.position.y - speed / acceptable / f, rock2.transform.position.z), rock2.transform.rotation);
         radarRotation.transform.SetLocalPositionAndRotation(radarRotation.transform.localPosition, Quaternion.Euler(new Vector3(0, 0, rr)));
 
         sppedIndicator.GetComponent<TextMesh>().text = "Скорость: " + (int)speed;
