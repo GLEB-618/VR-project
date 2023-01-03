@@ -41,12 +41,13 @@ public class Radar : MonoBehaviour
 		{
 			submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, (float)-0.365, submarine.transform.localPosition.z), submarine.transform.localRotation);
 		}
-		if (rock.transform.localPosition.x <= -0.42) // Когда скала_1 достигает края справа
+		if (rock.transform.localPosition.x <= -0.42) // Когда скала_1 достигает края слева
 		{
-			rock.transform.SetLocalPositionAndRotation(new Vector3(rock.transform.position.x, rock.transform.localPosition.y, 10), rock.transform.localRotation);
+			rock.SetActive(false);
 		}
 		if (rock2.transform.position.y <= 11.06405) // Когда скала_2 достигает края снизу
 		{
+			rock.SetActive(true);
 			rock.transform.SetLocalPositionAndRotation(new Vector3((float)0.41, rock.transform.localPosition.y, (float)-0.499), rock.transform.localRotation);
 			rock2.transform.SetPositionAndRotation(rock2Transform.position, rock2.transform.rotation);
 			radarRotation.transform.rotation = Quaternion.identity;
@@ -54,12 +55,12 @@ public class Radar : MonoBehaviour
 		}
         if (submarine.transform.localPosition.y >= -0.015) // Когда субмарина_1 выше скалы_1
 		{
-			rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y, 10), rock2.transform.localRotation);
+			rock2.SetActive(false);
 		}
 		else
 		{
-			rock2.transform.SetLocalPositionAndRotation(new Vector3(rock2.transform.localPosition.x, rock2.transform.localPosition.y, (float)-0.499), rock2.transform.localRotation);
-		}
+            rock2.SetActive(true);
+        }
 		if (heightHandle.transform.position.z > 1.7)
 		{
 			height = (heightHandle.transform.position.z - (float)1.7) * 2 / (float)0.2;
