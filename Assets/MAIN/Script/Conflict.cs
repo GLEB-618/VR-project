@@ -9,6 +9,7 @@ public class Conflict : MonoBehaviour
 	{
         if (collision.gameObject.name == "Rock" || collision.gameObject.name == "Rock_2")
         {
+            Debug.Log(collision.gameObject.name);
             SceneManager.LoadScene("Conflict");
         }
     }
