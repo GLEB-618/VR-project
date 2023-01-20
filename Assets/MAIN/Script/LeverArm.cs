@@ -101,18 +101,18 @@ public class LeverArm : MonoBehaviour
     }
 
 
-    protected virtual void Update()
-    {
-        if (maintainMomemntum && mappingChangeRate != 0.0f)
-        {
-            //Dampen the mapping change rate and apply it to the mapping
-            mappingChangeRate = Mathf.Lerp(mappingChangeRate, 0.0f, momemtumDampenRate * Time.deltaTime);
-            LinearMapping = Mathf.Clamp01(LinearMapping + (mappingChangeRate * Time.deltaTime));
+    //protected virtual void Update()
+    //{
+    //    if (maintainMomemntum && mappingChangeRate != 0.0f)
+    //    {
+    //        //Dampen the mapping change rate and apply it to the mapping
+    //        mappingChangeRate = Mathf.Lerp(mappingChangeRate, 0.0f, momemtumDampenRate * Time.deltaTime);
+    //        LinearMapping = Mathf.Clamp01(LinearMapping + (mappingChangeRate * Time.deltaTime));
 
-            if (repositionGameObject)
-            {
-                transform.position = Vector3.Lerp(startPosition.position, endPosition.position, LinearMapping);
-            }
-        }
-    }
+    //        if (repositionGameObject)
+    //        {
+    //            transform.position = Vector3.Lerp(startPosition.position, endPosition.position, LinearMapping);
+    //        }
+    //    }
+    //}
 }
