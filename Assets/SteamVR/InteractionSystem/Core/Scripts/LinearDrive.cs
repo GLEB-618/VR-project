@@ -129,19 +129,19 @@ namespace Valve.VR.InteractionSystem
 		}
 
 
-		protected virtual void Update()
-        {
-            if ( maintainMomemntum && mappingChangeRate != 0.0f )
-			{
-				//Dampen the mapping change rate and apply it to the mapping
-				mappingChangeRate = Mathf.Lerp( mappingChangeRate, 0.0f, momemtumDampenRate * Time.deltaTime );
-				linearMapping.value = Mathf.Clamp01( linearMapping.value + ( mappingChangeRate * Time.deltaTime ) );
+		//protected virtual void Update()
+		//{
+  //          if ( maintainMomemntum && mappingChangeRate != 0.0f )
+		//	{
+		//		//Dampen the mapping change rate and apply it to the mapping
+		//		mappingChangeRate = Mathf.Lerp( mappingChangeRate, 0.0f, momemtumDampenRate * Time.deltaTime );
+		//		linearMapping.value = Mathf.Clamp01( linearMapping.value + ( mappingChangeRate * Time.deltaTime ) );
 
-				if ( repositionGameObject )
-				{
-					transform.position = Vector3.Lerp( startPosition.position, endPosition.position, linearMapping.value );
-				}
-			}
-		}
+		//		if ( repositionGameObject )
+		//		{
+		//			transform.position = Vector3.Lerp( startPosition.position, endPosition.position, linearMapping.value );
+		//		}
+		//	}
+		//}
 	}
 }
