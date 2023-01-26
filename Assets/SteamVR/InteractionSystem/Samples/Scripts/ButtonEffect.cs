@@ -7,26 +7,19 @@ using System;
 
 namespace Valve.VR.InteractionSystem.Sample
 {
-    public class ButtonEffect : MonoBehaviour
-    {
+	public class ButtonEffect : MonoBehaviour
+	{
+        public GameObject handle;
         public void OnButtonDown(Hand fromHand)
-        {
-            ColorSelf(Color.cyan);
-            fromHand.TriggerHapticPulse(1000);
-        }
+		{
+			Debug.Log("Кнопка нажата");
+            setHandlePosition();
+			// fromHand.TriggerHapticPulse(1000);
+		}
 
-        public void OnButtonUp(Hand fromHand)
-        {
-            ColorSelf(Color.white);
+		private void setHandlePosition()
+		{	
+			handle.transform.SetLocalPositionAndRotation(new Vector3(handle.transform.localPosition.x, handle.transform.localPosition.y, (float)0.2), handle.transform.localRotation);
         }
-
-        private void ColorSelf(Color newColor)
-        {
-            Renderer[] renderers = this.GetComponentsInChildren<Renderer>();
-            for (int rendererIndex = 0; rendererIndex < renderers.Length; rendererIndex++)
-            {
-                renderers[rendererIndex].material.color = newColor;
-            }
-        }
-    }
+	}
 }
