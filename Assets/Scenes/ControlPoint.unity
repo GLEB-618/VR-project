@@ -1587,16 +1587,7 @@ MonoBehaviour:
   rock2: {fileID: 1869662361}
   rock2Transform: {fileID: 1298583435}
   submarine2: {fileID: 652655204}
-  sppedIndicator: {fileID: 1010700335}
-  heightIndicator: {fileID: 509470976}
-  rotationIndicator: {fileID: 248464911}
-  speedHandle: {fileID: 1407032326}
-  heightHandle: {fileID: 1440512397}
   wheel: {fileID: 919132148375121586}
-  radarRotation: {fileID: 441954987}
-  speed: 30
-  height: 0
-  rotation: 0
 --- !u!1 &623489721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1604,7 @@ GameObject:
   - component: {fileID: 623489727}
   m_Layer: 0
   m_Name: Submarine
-  m_TagString: Untagged
+  m_TagString: rock hor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1653,7 +1644,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 10d0965a535bb1d499d1551302033782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1812,7 +1803,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 10d0965a535bb1d499d1551302033782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3648,6 +3639,7 @@ GameObject:
   - component: {fileID: 1440512403}
   - component: {fileID: 1440512402}
   - component: {fileID: 1440512401}
+  - component: {fileID: 1440512404}
   - component: {fileID: 1440512400}
   - component: {fileID: 1440512399}
   m_Layer: 0
@@ -3812,6 +3804,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1440512404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440512397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf39561e40363e4ca75277862574298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submarine: {fileID: 623489721}
+  heightIndicator: {fileID: 509470976}
+  height: 0
 --- !u!1 &1604169740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4135,7 +4142,7 @@ GameObject:
   - component: {fileID: 1820219085}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: rock hor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4176,7 +4183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c07e72ffa13f1914ab08610008a2dde0, type: 2}
+  - {fileID: 2100000, guid: 10d0965a535bb1d499d1551302033782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4268,7 +4275,7 @@ GameObject:
   - component: {fileID: 1869662366}
   m_Layer: 0
   m_Name: Rock_2
-  m_TagString: Untagged
+  m_TagString: rock ver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4308,7 +4315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 10d0965a535bb1d499d1551302033782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5191,6 +5198,7 @@ GameObject:
   - component: {fileID: 3469287838295866288}
   - component: {fileID: 3469287838295866287}
   - component: {fileID: 3469287838295866286}
+  - component: {fileID: 3469287838295866289}
   m_Layer: 0
   m_Name: Jalopy_SteeringWheel
   m_TagString: Untagged
@@ -5435,6 +5443,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3389837678350715049, guid: c59d9d6a182310c4488b831a689f3f54, type: 3}
+--- !u!114 &3469287838295866289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148375121586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa26437871680a428a0551fd530501d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationIndicator: {fileID: 248464911}
+  radarRotation: {fileID: 441954987}
 --- !u!23 &3617895059207525180
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - spawn
+  - rock hor
+  - rock ver
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - UI
   - PostProcessing
   - Spawns
-  - 
+  - Rock hor
   - 
   - 
   - 
