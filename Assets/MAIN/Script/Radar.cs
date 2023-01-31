@@ -33,18 +33,18 @@ public class Radar : MonoBehaviour
   //      }
         // rotation = wheel.transform.localRotation.z * 90 / (float)0.7071068;
 
-        if (submarine.transform.localPosition.y >= 0.3675) // Когда субмарина_1 достигает края сверху
-		{
-			submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, (float)0.3675, submarine.transform.localPosition.z), submarine.transform.localRotation);
-		}
-		else if (submarine.transform.localPosition.y <= -0.365) // Когда субмарина_1 достигает края снизу
-		{
-			submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, (float)-0.365, submarine.transform.localPosition.z), submarine.transform.localRotation);
-		}
-		if (rock.transform.localPosition.x <= -0.42) // Когда скала_1 достигает края слева
-		{
-			rock.SetActive(false);
-		}
+  //      if (submarine.transform.localPosition.y >= 0.3675) // Когда субмарина_1 достигает края сверху
+		//{
+		//	submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, (float)0.3675, submarine.transform.localPosition.z), submarine.transform.localRotation);
+		//}
+		//else if (submarine.transform.localPosition.y <= -0.365) // Когда субмарина_1 достигает края снизу
+		//{
+		//	submarine.transform.SetLocalPositionAndRotation(new Vector3(submarine.transform.localPosition.x, (float)-0.365, submarine.transform.localPosition.z), submarine.transform.localRotation);
+		//}
+		//if (rock.transform.localPosition.x <= -0.42) // Когда скала_1 достигает края слева
+		//{
+		//	rock.SetActive(false);
+		//}
 		if (rock2.transform.position.y <= 11.06405) // Когда скала_2 достигает края снизу
 		{
 			rock.SetActive(true);
