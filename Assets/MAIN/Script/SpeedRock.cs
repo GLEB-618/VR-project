@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpeedRock : MonoBehaviour
 {
-	private float f = 2.80599f;
-	private float acceptable = 100000;
+	private float f = 2.79f; // 2.79f
+    private float acceptable = 100000;
     public float speed;
 	void Update()
 	{

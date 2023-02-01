@@ -19,7 +19,6 @@ public class SpawnRock : MonoBehaviour
 				rock.transform.parent = transform.GetChild(0);
 				rock.transform.SetLocalPositionAndRotation(new Vector3(rocks[i].transform.localPosition.x, rand, rocks[i].transform.localPosition.z), Quaternion.identity);
 				rock.name = "rock " + c;
-				// Debug.Log("Создался камень " + (i + 1));
 			}
 			else
 			{
@@ -28,8 +27,7 @@ public class SpawnRock : MonoBehaviour
 				rock.transform.parent = transform.GetChild(1).GetChild(1);
                 rock.transform.SetLocalPositionAndRotation(new Vector3(rocks[i].transform.localPosition.x, rocks[i].transform.localPosition.y, rocks[i].transform.localPosition.z), Quaternion.identity);
                 rock.name = "rock " + c;
-				rock.SetActive(false);
-                // Debug.Log("Создался камень " + i);
+				// rock.SetActive(false);
 				c++;
             }
 		}
