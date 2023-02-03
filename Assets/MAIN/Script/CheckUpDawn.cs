@@ -6,11 +6,11 @@ public class CheckUpDawn : MonoBehaviour
 {
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.name == "Submarine")
+        if (collision.name.Contains("rock"))
         {
-            foreach (Transform child in transform.parent.parent.parent.GetChild(1).GetChild(1).transform)
+            foreach (Transform child in transform.parent.parent.parent.GetChild(0).transform)
             {
-                if (child.name == transform.parent.name)
+                if (child.name == collision.name)
                 {
                     child.gameObject.SetActive(true);
                 }
@@ -32,11 +32,11 @@ public class CheckUpDawn : MonoBehaviour
     //}
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Submarine")
+        if (collision.name.Contains("rock"))
         {
-            foreach (Transform child in transform.parent.parent.parent.GetChild(1).GetChild(1).transform)
+            foreach (Transform child in transform.parent.parent.parent.GetChild(0).transform)
             {
-                if (child.name == transform.parent.name)
+                if (child.name == collision.name)
                 {
                     child.gameObject.SetActive(false);
                 }
