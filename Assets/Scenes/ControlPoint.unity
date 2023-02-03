@@ -1582,6 +1582,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdd5094edbd37d44f8df9e14b771f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rock: {fileID: 0}
+  submarine: {fileID: 623489721}
+  rock2: {fileID: 0}
+  rock2Transform: {fileID: 1298583435}
+  submarine2: {fileID: 652655204}
+  wheel: {fileID: 919132148375121586}
 --- !u!114 &605181443
 MonoBehaviour:
   m_ObjectHideFlags: 0

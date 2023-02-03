@@ -10,6 +10,11 @@ public class SpeedSet : MonoBehaviour
 	{
 		speed = (transform.position.z - (float)1.5) * 80 / (float)0.4 + 20;
 
+		if (speed < 0)
+		{
+			speed = 0;
+		}
+
 		sppedIndicator.GetComponent<TextMesh>().text = "Скорость: " + (int)speed;
 	}
 }
